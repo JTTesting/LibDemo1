@@ -1,15 +1,30 @@
-﻿namespace LibDemo1
+﻿using LibDemo2;
+using LibDemo3;
+namespace LibDemo1
 {
     public class LibClass1
     {
         private string _message;
-        public LibClass1(string message) 
+        public LibClass1(string message)
         {
-            _message = message;
+            _message = Lib2(Lib3(message));
         }
-        public string GetMessage()
+
+        static string Lib2(string txt)
         {
-            return $"{_message} from Library1";
+            LibClass2 Lib = new LibClass2(txt);
+            return Lib.GetMessage2();
+        }
+
+        static string Lib3(string txt)
+        {
+            LibClass3 Lib = new LibClass3(txt);
+            return Lib.GetMessage3();
+        }
+
+        public string GetMessage1()
+        {
+            return $"{_message} and from Library1";
         }
     }
 }
