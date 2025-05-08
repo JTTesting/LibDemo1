@@ -197,6 +197,10 @@ jobs:
             sed -i 's/MyName/${{ github.actor }}/g' nuget.config
             sed -i 's/MyPAT/${{ secrets.GITHUB_TOKEN }}/g' nuget.config
 
+  #---Setting the API Key to allow publishing 
+        - name: Set API Key
+          run: nuget setApiKey ${{ secrets.GITHUB_TOKEN }} -Source "https://nuget.pkg.github.com/JTTesting"
+
   #---Publishs NuGet package to GitHub packages, uses NuGet.Config for credentials.           
         - name: Publish NuGet Package
           run: dotnet nuget push "${{github.workspace}}\${{github.event.repository.name}}\bin\Release\${{github.event.repository.name}}.$env:VERSION.nupkg" --source "${{github.repository_owner}}"  
