@@ -24,7 +24,7 @@ jobs:
 
 #---This is creating a cache so we can retrieve our build artifacts later. 
       - name: Set up cache for build
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: "${{github.workspace}}"
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/package-lock.json') }}
