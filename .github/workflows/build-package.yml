@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
 #---This is creating a cache so we can retrieve our build artifacts later. 
       - name: Set up cache for build
@@ -157,7 +157,7 @@ jobs:
       
       steps:
         - name: Checkout code
-          uses: actions/checkout@v4
+          uses: actions/checkout@v5
   
         - name: Restore cache for build
           uses: actions/cache@v4
